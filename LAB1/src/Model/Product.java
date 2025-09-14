@@ -14,7 +14,12 @@ public class Product {
     String availNum;
     String price;
     Address manufactureAddress;
-    Address ShippingAddress;
+    Address shippingAddress;
+    
+    public Product(){
+        manufactureAddress = new Address();
+        shippingAddress = new Address();
+    }
 
     public String getName() {
         return name;
@@ -57,12 +62,10 @@ public class Product {
     }
 
     public Address getShippingAddress() {
-        return ShippingAddress;
+        return shippingAddress;
     }
 
     public void setShippingAddress(Address ShippingAddress) {
-        this.ShippingAddress = ShippingAddress;
+        this.shippingAddress = ShippingAddress;
     }
-    
-    
 }

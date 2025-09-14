@@ -1,20 +1,24 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package UI;
+import Model.Product;
+import javax.swing.JOptionPane;
 
 /**
- *
+ * 
  * @author grace
  */
-public class CreateJPanel extends javax.swing.JPanel {
+ public class CreateJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form CreateJPanel
      */
-    public CreateJPanel() {
+     Product product;
+    public CreateJPanel(Product p) {
         initComponents();
+        product = p;
     }
 
     /**
@@ -26,23 +30,81 @@ public class CreateJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblCreateProduct = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
+        lblDescription = new javax.swing.JLabel();
+        lblAvailability = new javax.swing.JLabel();
+        lblPrice = new javax.swing.JLabel();
+        tfName = new javax.swing.JTextField();
+        tfDescription = new javax.swing.JTextField();
+        tfAvailability = new javax.swing.JTextField();
+        tfPrice = new javax.swing.JTextField();
+        lblManAdres = new javax.swing.JLabel();
+        lblShipAdres = new javax.swing.JLabel();
+        lblManStrtName = new javax.swing.JLabel();
+        lblManUnitNum = new javax.swing.JLabel();
+        lblManCity = new javax.swing.JLabel();
+        lblManZipCode = new javax.swing.JLabel();
+        tfStrtName = new javax.swing.JTextField();
+        tfUnitNum = new javax.swing.JTextField();
+        tfManCity = new javax.swing.JTextField();
+        tfManZipcode = new javax.swing.JTextField();
+        lblShpUnitNum = new javax.swing.JLabel();
+        lblShpCity = new javax.swing.JLabel();
+        lblShpStrtName = new javax.swing.JLabel();
+        lblShpZipCode = new javax.swing.JLabel();
+        tfShpStrtName = new javax.swing.JTextField();
+        tfShpUnitNum = new javax.swing.JTextField();
+        tfShpCity = new javax.swing.JTextField();
+        tfShpZipCode = new javax.swing.JTextField();
+        btnSave = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 204, 255));
 
-        jLabel1.setText("Create a Product");
+        lblCreateProduct.setFont(new java.awt.Font("Eras Demi ITC", 0, 24)); // NOI18N
+        lblCreateProduct.setText("Create a Product");
 
-        jLabel2.setText("jLabel2");
+        lblName.setText("Name");
 
-        jLabel3.setText("jLabel3");
+        lblDescription.setText("Description");
 
-        jLabel4.setText("jLabel4");
+        lblAvailability.setText("Availability");
 
-        jLabel5.setText("jLabel5");
+        lblPrice.setText("Price");
+
+        tfDescription.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfDescriptionActionPerformed(evt);
+            }
+        });
+
+        lblManAdres.setText("Manufacture Address");
+
+        lblShipAdres.setText("Shipping Address");
+
+        lblManStrtName.setText("Street Name");
+
+        lblManUnitNum.setText("Unit Number");
+
+        lblManCity.setText("City");
+
+        lblManZipCode.setText("ZipCode");
+
+        lblShpUnitNum.setText("Unit Number");
+
+        lblShpCity.setText("City");
+
+        lblShpStrtName.setText("Street Name");
+
+        lblShpZipCode.setText("Zip Code");
+
+        btnSave.setBackground(new java.awt.Color(204, 0, 255));
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -51,40 +113,211 @@ public class CreateJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
+                        .addGap(70, 70, 70)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))))
-                .addContainerGap(180, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPrice)
+                                    .addComponent(lblAvailability))
+                                .addGap(0, 177, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lblShipAdres)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(lblShpUnitNum, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(lblShpStrtName, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGap(19, 19, 19))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(lblShpZipCode)
+                                                        .addComponent(lblShpCity))
+                                                    .addGap(30, 30, 30)))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(tfShpStrtName, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(tfShpUnitNum, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                                                .addComponent(tfShpCity)
+                                                .addComponent(tfShpZipCode))))
+                                    .addComponent(tfAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(lblName)
+                                        .addGap(63, 63, 63)
+                                        .addComponent(tfName))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(lblDescription)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                                        .addComponent(tfDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(102, 102, 102))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(94, 94, 94)
+                                .addComponent(lblCreateProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblManUnitNum, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblManStrtName))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(18, 18, 18)
+                                                .addComponent(tfStrtName, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(tfUnitNum, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(tfManCity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(tfManZipcode, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(lblManCity)
+                                    .addComponent(lblManZipCode)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addComponent(lblManAdres))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(tfPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGap(220, 220, 220)
+                                    .addComponent(btnSave))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel1)
-                .addGap(43, 43, 43)
-                .addComponent(jLabel2)
                 .addGap(31, 31, 31)
-                .addComponent(jLabel3)
-                .addGap(36, 36, 36)
-                .addComponent(jLabel4)
-                .addGap(34, 34, 34)
-                .addComponent(jLabel5)
-                .addContainerGap(203, Short.MAX_VALUE))
+                .addComponent(lblCreateProduct)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblName)
+                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDescription)
+                    .addComponent(tfDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAvailability)
+                    .addComponent(tfAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPrice)
+                    .addComponent(tfPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblManAdres)
+                    .addComponent(lblShipAdres))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblManStrtName)
+                        .addComponent(tfStrtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tfShpStrtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblShpStrtName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblManUnitNum)
+                        .addComponent(tfUnitNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblShpUnitNum))
+                    .addComponent(tfShpUnitNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblManCity)
+                    .addComponent(tfManCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblShpCity)
+                    .addComponent(tfShpCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblManZipCode)
+                    .addComponent(tfManZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblShpZipCode)
+                    .addComponent(tfShpZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(btnSave)
+                .addGap(27, 27, 27))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tfDescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDescriptionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfDescriptionActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        //Collect text from the field
+        String name = tfName.getText();
+        String description = tfDescription.getText();
+        String availability = tfAvailability.getText();
+        String price = tfPrice.getText();
+        
+        String ManuStrtName =  tfName.getText();
+        String ManuUnitNum = tfUnitNum.getText();
+        String ManuCity = tfManCity.getText();
+        String ManuZipCode = tfManZipcode.getText();
+        
+        String ShipStrtName = tfShpStrtName.getText();
+        String ShipUnitNum = tfShpUnitNum.getText();
+        String ShipCity = tfShpCity.getText();
+        String ShipZipCode = tfShpZipCode.getText();
+        
+       //Step2: Put those information into product
+       product.setName(name);
+       product.setDescription(description);
+       product.setAvailNum(availability);
+       product.setPrice(price);
+       
+       product.getManufactureAddress().setStreetName(ManuStrtName);
+       product.getManufactureAddress().setUnitNum(ManuUnitNum);
+       product.getManufactureAddress().setCity(ManuCity);
+       product.getManufactureAddress().setZipCode(ManuZipCode);
+       
+       product.getShippingAddress().setStreetName(ShipStrtName);
+       product.getShippingAddress().setUnitNum(ShipUnitNum);
+       product.getShippingAddress().setCity(ShipCity);
+       product.getShippingAddress().setZipCode(ShipZipCode);
+       
+       JOptionPane.showMessageDialog(this,"successfully saved", "Success",JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnSaveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JLabel lblAvailability;
+    private javax.swing.JLabel lblCreateProduct;
+    private javax.swing.JLabel lblDescription;
+    private javax.swing.JLabel lblManAdres;
+    private javax.swing.JLabel lblManCity;
+    private javax.swing.JLabel lblManStrtName;
+    private javax.swing.JLabel lblManUnitNum;
+    private javax.swing.JLabel lblManZipCode;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPrice;
+    private javax.swing.JLabel lblShipAdres;
+    private javax.swing.JLabel lblShpCity;
+    private javax.swing.JLabel lblShpStrtName;
+    private javax.swing.JLabel lblShpUnitNum;
+    private javax.swing.JLabel lblShpZipCode;
+    private javax.swing.JTextField tfAvailability;
+    private javax.swing.JTextField tfDescription;
+    private javax.swing.JTextField tfManCity;
+    private javax.swing.JTextField tfManZipcode;
+    private javax.swing.JTextField tfName;
+    private javax.swing.JTextField tfPrice;
+    private javax.swing.JTextField tfShpCity;
+    private javax.swing.JTextField tfShpStrtName;
+    private javax.swing.JTextField tfShpUnitNum;
+    private javax.swing.JTextField tfShpZipCode;
+    private javax.swing.JTextField tfStrtName;
+    private javax.swing.JTextField tfUnitNum;
     // End of variables declaration//GEN-END:variables
 }
