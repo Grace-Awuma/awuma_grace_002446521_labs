@@ -260,7 +260,7 @@ import javax.swing.JOptionPane;
         String availability = tfAvailability.getText();
         String price = tfPrice.getText();
         
-        String ManuStrtName =  tfName.getText();
+        String ManuStrtName =  tfStrtName.getText();
         String ManuUnitNum = tfUnitNum.getText();
         String ManuCity = tfManCity.getText();
         String ManuZipCode = tfManZipcode.getText();
@@ -285,8 +285,25 @@ import javax.swing.JOptionPane;
        product.getShippingAddress().setUnitNum(ShipUnitNum);
        product.getShippingAddress().setCity(ShipCity);
        product.getShippingAddress().setZipCode(ShipZipCode);
-       
+       //setting success pop-up message
        JOptionPane.showMessageDialog(this,"successfully saved", "Success",JOptionPane.INFORMATION_MESSAGE);
+       
+       //clear all text-fields
+      tfName.setText("");
+      tfDescription.setText("");
+      tfAvailability.setText("");
+      tfPrice.setText("");
+      
+      tfStrtName.setText("");
+      tfUnitNum.setText("");
+      tfManCity.setText("");
+      tfManZipcode.setText("");
+      
+      tfShpStrtName.setText("");
+      tfShpUnitNum.setText("");
+      tfShpCity.setText("");
+      tfShpZipCode.setText("");
+      
     }//GEN-LAST:event_btnSaveActionPerformed
 
 
