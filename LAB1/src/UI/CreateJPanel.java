@@ -119,7 +119,7 @@ import javax.swing.JOptionPane;
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblPrice)
                                     .addComponent(lblAvailability))
-                                .addGap(0, 177, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(lblShipAdres)
@@ -145,19 +145,20 @@ import javax.swing.JOptionPane;
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(lblDescription)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(tfDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(lblName)
                                         .addGap(63, 63, 63)
-                                        .addComponent(tfName))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(lblDescription)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                                        .addComponent(tfDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lblCreateProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                            .addComponent(tfName))))
                                 .addGap(102, 102, 102))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(94, 94, 94)
-                                .addComponent(lblCreateProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(19, 19, 19)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,7 +188,7 @@ import javax.swing.JOptionPane;
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addGap(220, 220, 220)
                                     .addComponent(btnSave))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 253, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -252,58 +253,138 @@ import javax.swing.JOptionPane;
         // TODO add your handling code here:
     }//GEN-LAST:event_tfDescriptionActionPerformed
 
+    // Add these two methods to your CreateJPanel class
+
+// Helper method to check if field is empty
+private boolean isFieldEmpty(String text) {
+    return text == null || text.trim().isEmpty();
+}
+
+// Simple validation method
+private boolean validateFields() {
+    // Check each field and show error message immediately when empty field is found
+    if (isFieldEmpty(tfName.getText())) {
+        JOptionPane.showMessageDialog(this, "Name field is required!", "Validation Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+    
+    if (isFieldEmpty(tfDescription.getText())) {
+        JOptionPane.showMessageDialog(this, "Description field is required!", "Validation Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+    
+    if (isFieldEmpty(tfAvailability.getText())) {
+        JOptionPane.showMessageDialog(this, "Availability field is required!", "Validation Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+    
+    if (isFieldEmpty(tfPrice.getText())) {
+        JOptionPane.showMessageDialog(this, "Price field is required!", "Validation Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+    
+    if (isFieldEmpty(tfStrtName.getText())) {
+        JOptionPane.showMessageDialog(this, "Manufacture Street Name is required!", "Validation Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+    
+    if (isFieldEmpty(tfUnitNum.getText())) {
+        JOptionPane.showMessageDialog(this, "Manufacture Unit Number is required!", "Validation Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+    
+    if (isFieldEmpty(tfManCity.getText())) {
+        JOptionPane.showMessageDialog(this, "Manufacture City is required!", "Validation Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+    
+    if (isFieldEmpty(tfManZipcode.getText())) {
+        JOptionPane.showMessageDialog(this, "Manufacture Zip Code is required!", "Validation Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+    
+    if (isFieldEmpty(tfShpStrtName.getText())) {
+        JOptionPane.showMessageDialog(this, "Shipping Street Name is required!", "Validation Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+    
+    if (isFieldEmpty(tfShpUnitNum.getText())) {
+        JOptionPane.showMessageDialog(this, "Shipping Unit Number is required!", "Validation Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+    
+    if (isFieldEmpty(tfShpCity.getText())) {
+        JOptionPane.showMessageDialog(this, "Shipping City is required!", "Validation Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+    
+    if (isFieldEmpty(tfShpZipCode.getText())) {
+        JOptionPane.showMessageDialog(this, "Shipping Zip Code is required!", "Validation Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+    
+    return true; // All fields are valid
+}
+
+// Replace your existing btnSaveActionPerformed method with this:  
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:
-        //Collect text from the field
-        String name = tfName.getText();
-        String description = tfDescription.getText();
-        String availability = tfAvailability.getText();
-        String price = tfPrice.getText();
-        
-        String ManuStrtName =  tfStrtName.getText();
-        String ManuUnitNum = tfUnitNum.getText();
-        String ManuCity = tfManCity.getText();
-        String ManuZipCode = tfManZipcode.getText();
-        
-        String ShipStrtName = tfShpStrtName.getText();
-        String ShipUnitNum = tfShpUnitNum.getText();
-        String ShipCity = tfShpCity.getText();
-        String ShipZipCode = tfShpZipCode.getText();
-        
-       //Step2: Put those information into product
-       product.setName(name);
-       product.setDescription(description);
-       product.setAvailNum(availability);
-       product.setPrice(price);
-       
-       product.getManufactureAddress().setStreetName(ManuStrtName);
-       product.getManufactureAddress().setUnitNum(ManuUnitNum);
-       product.getManufactureAddress().setCity(ManuCity);
-       product.getManufactureAddress().setZipCode(ManuZipCode);
-       
-       product.getShippingAddress().setStreetName(ShipStrtName);
-       product.getShippingAddress().setUnitNum(ShipUnitNum);
-       product.getShippingAddress().setCity(ShipCity);
-       product.getShippingAddress().setZipCode(ShipZipCode);
-       //setting success pop-up message
-       JOptionPane.showMessageDialog(this,"successfully saved", "Success",JOptionPane.INFORMATION_MESSAGE);
-       
-       //clear all text-fields
-      tfName.setText("");
-      tfDescription.setText("");
-      tfAvailability.setText("");
-      tfPrice.setText("");
-      
-      tfStrtName.setText("");
-      tfUnitNum.setText("");
-      tfManCity.setText("");
-      tfManZipcode.setText("");
-      
-      tfShpStrtName.setText("");
-      tfShpUnitNum.setText("");
-      tfShpCity.setText("");
-      tfShpZipCode.setText("");
-      
+
+      // Validate fields first - if validation fails, stop here
+    if (!validateFields()) {
+        return; // Don't proceed with saving if validation fails
+    }
+    
+    // If validation passes, proceed with your existing save logic
+    //Collect text from the field
+    String name = tfName.getText();
+    String description = tfDescription.getText();
+    String availability = tfAvailability.getText();
+    String price = tfPrice.getText();
+    
+    String ManuStrtName =  tfStrtName.getText();
+    String ManuUnitNum = tfUnitNum.getText();
+    String ManuCity = tfManCity.getText();
+    String ManuZipCode = tfManZipcode.getText();
+    
+    String ShipStrtName = tfShpStrtName.getText();
+    String ShipUnitNum = tfShpUnitNum.getText();
+    String ShipCity = tfShpCity.getText();
+    String ShipZipCode = tfShpZipCode.getText();
+    
+   //Step2: Put those information into product
+   product.setName(name);
+   product.setDescription(description);
+   product.setAvailNum(availability);
+   product.setPrice(price);
+   
+   product.getManufactureAddress().setStreetName(ManuStrtName);
+   product.getManufactureAddress().setUnitNum(ManuUnitNum);
+   product.getManufactureAddress().setCity(ManuCity);
+   product.getManufactureAddress().setZipCode(ManuZipCode);
+   
+   product.getShippingAddress().setStreetName(ShipStrtName);
+   product.getShippingAddress().setUnitNum(ShipUnitNum);
+   product.getShippingAddress().setCity(ShipCity);
+   product.getShippingAddress().setZipCode(ShipZipCode);
+   
+   //setting success pop-up message
+   JOptionPane.showMessageDialog(this,"Successfully saved", "Success",JOptionPane.INFORMATION_MESSAGE);
+   
+   //clear all text-fields
+  tfName.setText("");
+  tfDescription.setText("");
+  tfAvailability.setText("");
+  tfPrice.setText("");
+  
+  tfStrtName.setText("");
+  tfUnitNum.setText("");
+  tfManCity.setText("");
+  tfManZipcode.setText("");
+  
+  tfShpStrtName.setText("");
+  tfShpUnitNum.setText("");
+  tfShpCity.setText("");
+  tfShpZipCode.setText(""); 
     }//GEN-LAST:event_btnSaveActionPerformed
 
 

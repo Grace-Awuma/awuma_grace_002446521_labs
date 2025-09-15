@@ -106,8 +106,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisplayActionPerformed
         // TODO add your handling code here:
-                DisplayJPanel displayJPanel = new DisplayJPanel(product);
-                splitPane.setRightComponent(displayJPanel);
+                ViewJPanel viewJPanel = new ViewJPanel(product);
+                splitPane.setRightComponent(viewJPanel);
 
     }//GEN-LAST:event_btnDisplayActionPerformed
 
