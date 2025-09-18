@@ -4,6 +4,8 @@
  */
 package UI;
 
+import Model.VitalSignHistory;
+
 /**
  *
  * @author grace
@@ -13,8 +15,10 @@ public class ViewJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewJPanel
      */
-    public ViewJPanel() {
+    VitalSignHistory history;
+    public ViewJPanel(VitalSignHistory vsh) {
         initComponents();
+        this.history = vsh;
     }
 
     /**
@@ -26,19 +30,116 @@ public class ViewJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        lblViewVitals = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblVitals = new javax.swing.JTable();
+        lblDate = new javax.swing.JLabel();
+        lblTemperature = new javax.swing.JLabel();
+        lblBloodPressure = new javax.swing.JLabel();
+        lblPulse = new javax.swing.JLabel();
+        lblConsciousStatus = new javax.swing.JLabel();
+        fieldTemperature = new javax.swing.JTextField();
+        fieldBloodPressure = new javax.swing.JTextField();
+        fieldPulse = new javax.swing.JTextField();
+        fieldDate = new javax.swing.JTextField();
+        lblStatus = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 102, 102));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblViewVitals.setFont(new java.awt.Font("Matura MT Script Capitals", 0, 18)); // NOI18N
+        lblViewVitals.setText("View Vital Sign");
+        add(lblViewVitals, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 240, -1));
+
+        tblVitals.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Date", "Temperature", "BloodPressure", "Pulse", "Conscious Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblVitals);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 510, 190));
+
+        lblDate.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        lblDate.setText("Date");
+        add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, -1, -1));
+
+        lblTemperature.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        lblTemperature.setText("Temperature");
+        add(lblTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 440, -1, -1));
+
+        lblBloodPressure.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        lblBloodPressure.setText("Blood Pressure");
+        add(lblBloodPressure, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, -1, -1));
+
+        lblPulse.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        lblPulse.setText("Pulse");
+        add(lblPulse, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 500, -1, -1));
+
+        lblConsciousStatus.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        lblConsciousStatus.setText("Conscious Status");
+        add(lblConsciousStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 540, 120, -1));
+
+        fieldTemperature.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldTemperatureActionPerformed(evt);
+            }
+        });
+        add(fieldTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, 150, -1));
+        add(fieldBloodPressure, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 470, 150, -1));
+        add(fieldPulse, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 500, 150, -1));
+        add(fieldDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 150, -1));
+        add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 610, 80, -1));
+
+        jButton1.setText("View");
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, -1, -1));
+
+        jButton2.setText("Delete");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void fieldTemperatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldTemperatureActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldTemperatureActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField fieldBloodPressure;
+    private javax.swing.JTextField fieldDate;
+    private javax.swing.JTextField fieldPulse;
+    private javax.swing.JTextField fieldTemperature;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblBloodPressure;
+    private javax.swing.JLabel lblConsciousStatus;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblPulse;
+    private javax.swing.JLabel lblStatus;
+    private javax.swing.JLabel lblTemperature;
+    private javax.swing.JLabel lblViewVitals;
+    private javax.swing.JTable tblVitals;
     // End of variables declaration//GEN-END:variables
 }
