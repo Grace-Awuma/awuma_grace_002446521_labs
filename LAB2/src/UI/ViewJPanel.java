@@ -150,6 +150,21 @@ public class ViewJPanel extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        int selectedRow = tblVitals.getSelectedRow();
+    
+    if (selectedRow < 0) {
+        JOptionPane.showMessageDialog(this, "Please select a row to delete", "Warning", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+    
+    DefaultTableModel model = (DefaultTableModel) tblVitals.getModel();
+    VitalSign selectedVital = history.getHistory().get(selectedRow);
+    
+    history.deleteVital(selectedVital);
+    
+    JOptionPane.showMessageDialog(this, "Vital Sign deleted", "Success", JOptionPane.INFORMATION_MESSAGE);
+    
+    populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
