@@ -13,7 +13,7 @@ public class VitalSign {
        float temperature;
        double bloodPressure;
        int pulse;
-       boolean isConscious;
+    private boolean conscious;
 
     public String getDate() {
         return date;
@@ -47,21 +47,17 @@ public class VitalSign {
         this.pulse = pulse;
     }
 
-    public boolean isIsConscious() {
-        return isConscious;
+    public boolean isConscious() {
+        return conscious;
     }
 
-    public void setIsConscious(boolean isConscious) {
-        this.isConscious = isConscious;
+    public void setConscious(boolean conscious) {
+        this.conscious = conscious;
     }
        
-       
-       
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    @Override
+    public String toString(){
+    return getDate();
     }
     
 }

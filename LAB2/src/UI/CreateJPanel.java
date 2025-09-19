@@ -136,7 +136,9 @@ public class CreateJPanel extends javax.swing.JPanel {
         vs.setTemperature(temp);
         vs.setBloodPressure(bp);
         vs.setPulse(pulse);
-        vs.setIsConscious(isConscious);
+        vs.setConscious(isConscious);
+        
+        history.getHistory().add(vs);
         
         //setting success pop-up message
    JOptionPane.showMessageDialog(this,"Successfully saved", "Success",JOptionPane.INFORMATION_MESSAGE);
