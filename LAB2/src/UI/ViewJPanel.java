@@ -73,7 +73,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblViewVitals.setFont(new java.awt.Font("Matura MT Script Capitals", 0, 18)); // NOI18N
-        lblViewVitals.setText("View Vital Sign");
+        lblViewVitals.setText("View Vital Sign History");
         add(lblViewVitals, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 240, -1));
 
         tblVitals.setModel(new javax.swing.table.DefaultTableModel(
@@ -94,7 +94,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblVitals);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 510, 190));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 540, 190));
 
         lblDate.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         lblDate.setText("Date");
@@ -127,21 +127,23 @@ public class ViewJPanel extends javax.swing.JPanel {
         add(fieldDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 150, -1));
         add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 610, 80, -1));
 
+        btnView.setFont(new java.awt.Font("Sans Serif Collection", 0, 14)); // NOI18N
         btnView.setText("View");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewActionPerformed(evt);
             }
         });
-        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, -1, -1));
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
 
+        btnDelete.setFont(new java.awt.Font("Sans Serif Collection", 0, 14)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void fieldTemperatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldTemperatureActionPerformed
@@ -165,6 +167,14 @@ public class ViewJPanel extends javax.swing.JPanel {
     JOptionPane.showMessageDialog(this, "Vital Sign deleted", "Success", JOptionPane.INFORMATION_MESSAGE);
     
     populateTable();
+    
+     fieldDate.setText("");
+    fieldTemperature.setText("");
+    fieldBloodPressure.setText("");
+    fieldPulse.setText("");
+    lblStatus.setText("");
+
+    
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
