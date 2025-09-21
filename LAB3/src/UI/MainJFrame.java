@@ -4,17 +4,39 @@
  */
 package UI;
 
+import Model.Account;
+import Model.AccountDirectory;
+
 /**
  *
  * @author grace
  */
 public class MainJFrame extends javax.swing.JFrame {
 
+    private AccountDirectory accountDirectory;
     /**
      * Creates new form MainJFrame
      */
     public MainJFrame() {
         initComponents();
+        this.accountDirectory = new AccountDirectory();
+        generateDemoData();
+        
+    }
+    
+    private void generateDemoData() {
+        
+    Account newAccount = accountDirectory.addAccount();
+    newAccount.setAccountNumber("444444444");
+    newAccount.setRoutingNumber("001122334");
+    newAccount.setBankName("Bank of America");
+    newAccount.setBalance(200);
+    
+    Account anotherNewAccount = accountDirectory.addAccount();
+    anotherNewAccount.setAccountNumber("555555555");
+    anotherNewAccount.setRoutingNumber("007711234");
+    anotherNewAccount.setBankName("Santander Bank");
+    anotherNewAccount.setBalance(1200);
     }
 
     /**
@@ -26,21 +48,52 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSplitPane2 = new javax.swing.JSplitPane();
+        topjPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        userProcessContainer = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jSplitPane2.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+
+        jButton1.setText("Open Account Manager Work Area");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout topjPanel1Layout = new javax.swing.GroupLayout(topjPanel1);
+        topjPanel1.setLayout(topjPanel1Layout);
+        topjPanel1Layout.setHorizontalGroup(
+            topjPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(topjPanel1Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(319, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        topjPanel1Layout.setVerticalGroup(
+            topjPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(topjPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jButton1)
+                .addContainerGap(57, Short.MAX_VALUE))
         );
+
+        jSplitPane2.setTopComponent(topjPanel1);
+
+        userProcessContainer.setLayout(new java.awt.CardLayout());
+        jSplitPane2.setRightComponent(userProcessContainer);
+
+        getContentPane().add(jSplitPane2, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +131,11 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JSplitPane jSplitPane2;
+    private javax.swing.JPanel topjPanel1;
+    private javax.swing.JPanel userProcessContainer;
     // End of variables declaration//GEN-END:variables
+
+    
 }
