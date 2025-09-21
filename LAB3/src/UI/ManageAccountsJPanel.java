@@ -4,18 +4,27 @@
  */
 package UI;
 
+import Model.AccountDirectory;
+import javax.swing.JPanel;
+
 /**
  *
  * @author grace
  */
 public class ManageAccountsJPanel extends javax.swing.JPanel {
 
+    JPanel userProcessContainer;
+    AccountDirectory accountDirectory;
     /**
      * Creates new form ManageAccountsJPanel
      */
-    public ManageAccountsJPanel() {
+    public ManageAccountsJPanel(JPanel container, AccountDirectory directory) {
         initComponents();
+        userProcessContainer = container;
+        accountDirectory = directory;
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
