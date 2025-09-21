@@ -5,6 +5,7 @@
 package UI;
 
 import Model.AccountDirectory;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -72,6 +73,11 @@ public class ManageAccountsJPanel extends javax.swing.JPanel {
         });
 
         btnBack.setText("<< Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         btnViewDetails.setText("View Details");
 
@@ -139,6 +145,13 @@ public class ManageAccountsJPanel extends javax.swing.JPanel {
     private void btnDeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAccountActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteAccountActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
