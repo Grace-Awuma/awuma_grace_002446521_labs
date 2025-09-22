@@ -7,6 +7,7 @@ package UI;
 import Model.Account;
 import Model.AccountDirectory;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -173,8 +174,13 @@ public class ViewAccountJPanel extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
          userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+Component[] panelStack = userProcessContainer.getComponents();
+JPanel lastPanel = (JPanel) panelStack[panelStack.length - 1];
+ManageAccountsJPanel manageAccountJPanel = (ManageAccountsJPanel) lastPanel;
+manageAccountJPanel.populateTable();
+
+CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

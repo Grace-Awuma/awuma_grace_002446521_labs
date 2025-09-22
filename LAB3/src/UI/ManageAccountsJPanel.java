@@ -234,7 +234,7 @@ public void setVisible(boolean visible) {
     private javax.swing.JTextField txtSearchBox;
     // End of variables declaration//GEN-END:variables
 
-    private void populateTable() {
+    void populateTable() {
          DefaultTableModel model = (DefaultTableModel) tblAccounts.getModel();
     model.setRowCount(0);
     
