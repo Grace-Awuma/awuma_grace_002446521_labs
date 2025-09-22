@@ -58,6 +58,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane2.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
+        btnAccountingMng.setBackground(new java.awt.Color(204, 255, 255));
+        btnAccountingMng.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnAccountingMng.setText("Open Account Manager Work Area");
         btnAccountingMng.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,19 +73,20 @@ public class MainJFrame extends javax.swing.JFrame {
             topjPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topjPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(btnAccountingMng, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addComponent(btnAccountingMng)
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         topjPanel1Layout.setVerticalGroup(
             topjPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topjPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(btnAccountingMng)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         jSplitPane2.setTopComponent(topjPanel1);
 
+        userProcessContainer.setBackground(new java.awt.Color(255, 255, 255));
         userProcessContainer.setLayout(new java.awt.CardLayout());
         jSplitPane2.setRightComponent(userProcessContainer);
 

@@ -48,8 +48,11 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
         txtBalance = new javax.swing.JTextField();
         btnCreate = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(153, 153, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnBack.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,8 +61,9 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
+        lblCreateAcc.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
         lblCreateAcc.setText("Create Account");
-        add(lblCreateAcc, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 110, -1));
+        add(lblCreateAcc, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 120, -1));
 
         lblRoutingNumber.setText("Routing Number");
         add(lblRoutingNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
@@ -72,11 +76,21 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
 
         lblBalance.setText("Balance");
         add(lblBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
+
+        txtRoutingNumber.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(txtRoutingNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 130, -1));
+
+        txtAccountNumber.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(txtAccountNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 130, -1));
+
+        txtBankName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(txtBankName, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 130, -1));
+
+        txtBalance.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(txtBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 130, -1));
 
+        btnCreate.setBackground(new java.awt.Color(204, 255, 255));
+        btnCreate.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnCreate.setText("Create Account");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
