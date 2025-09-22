@@ -19,6 +19,7 @@ public class ManageAccountsJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private AccountDirectory accountDirectory;
+    private int selectedRow;
     /**
      * Creates new form ManageAccountsJPanel
      */
@@ -29,7 +30,13 @@ public class ManageAccountsJPanel extends javax.swing.JPanel {
         populateTable();
     }
 
-    
+    @Override
+public void setVisible(boolean visible) {
+    super.setVisible(visible);
+    if (visible) {
+        populateTable(); // Refresh whenever panel becomes visible
+    }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,7 +47,7 @@ public class ManageAccountsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblManageAccounts = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAccounts = new javax.swing.JTable();
         txtSearchBox = new javax.swing.JTextField();
@@ -49,7 +56,7 @@ public class ManageAccountsJPanel extends javax.swing.JPanel {
         btnViewDetails = new javax.swing.JButton();
         btnDeleteAccount = new javax.swing.JButton();
 
-        jLabel1.setText("Manage Accounts");
+        lblManageAccounts.setText("Manage Accounts");
 
         tblAccounts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -106,7 +113,7 @@ public class ManageAccountsJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblManageAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -132,7 +139,7 @@ public class ManageAccountsJPanel extends javax.swing.JPanel {
                 .addGap(11, 11, 11)
                 .addComponent(btnBack)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addComponent(lblManageAccounts)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -172,14 +179,14 @@ public class ManageAccountsJPanel extends javax.swing.JPanel {
 
     private void btnDeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAccountActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblAccounts.getSelectedRow();
+       selectedRow = tblAccounts.getSelectedRow();
     
     if (selectedRow >= 0) {
         
         int dialogButton = JOptionPane.YES_NO_OPTION;
         int dialogResult = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the selected account?", "Warning", dialogButton);
         if (dialogResult == JOptionPane.YES_OPTION) {
-            Account selectedAccount = (Account) tblAccounts.getValueAt(selectedRow, 0);
+            Account selectedAccount = (Account) tblAccounts.getValueAt(selectedRow, 0); 
             accountDirectory.deleteAccount(selectedAccount);
             populateTable();
         }
@@ -197,7 +204,7 @@ public class ManageAccountsJPanel extends javax.swing.JPanel {
 
     private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
         // TODO add your handling code here:
-       int selectedRow = tblAccounts.getSelectedRow();
+        int selectedRow = tblAccounts.getSelectedRow();
     
     if (selectedRow >= 0) {
         
@@ -221,20 +228,20 @@ public class ManageAccountsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnDeleteAccount;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnViewDetails;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblManageAccounts;
     private javax.swing.JTable tblAccounts;
     private javax.swing.JTextField txtSearchBox;
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
-        DefaultTableModel model = (DefaultTableModel) tblAccounts.getModel();
+         DefaultTableModel model = (DefaultTableModel) tblAccounts.getModel();
     model.setRowCount(0);
     
     for (Account a : accountDirectory.getAccounts()) {
         
         Object[] row = new Object[4];
-        row[0] = a;
+        row[0] = a; // Store the Account object directly
         row[1] = a.getRoutingNumber();
         row[2] = a.getAccountNumber();
         row[3] = String.valueOf(a.getBalance());

@@ -46,16 +46,16 @@ public class Account {
     public void setBalance(int balance) {
         this.balance = balance;
     }
-    
-    
-    
-    
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
     }
+    
+    @Override
+public String toString() {
+    return this.getBankName();
+}
     
 }

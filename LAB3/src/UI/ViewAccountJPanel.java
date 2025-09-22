@@ -6,6 +6,7 @@ package UI;
 
 import Model.Account;
 import Model.AccountDirectory;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -51,6 +52,11 @@ public class ViewAccountJPanel extends javax.swing.JPanel {
         btnSave = new javax.swing.JButton();
 
         btnBack.setText("<< Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         lblViewAccount.setText("View Account");
 
@@ -164,6 +170,13 @@ public class ViewAccountJPanel extends javax.swing.JPanel {
     setViewMode();
     }//GEN-LAST:event_btnSaveActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+         userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -195,6 +208,8 @@ public class ViewAccountJPanel extends javax.swing.JPanel {
     txtRoutingNumber.setEnabled(true);
     txtAccountNumber.setEnabled(true);
     txtBankName.setEnabled(true);
+    btnSave.setEnabled(true);
+    btnUpdate.setEnabled(false);
 }
 }
 
