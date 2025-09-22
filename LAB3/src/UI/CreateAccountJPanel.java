@@ -59,23 +59,23 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         lblCreateAcc.setText("Create Account");
-        add(lblCreateAcc, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 110, -1));
+        add(lblCreateAcc, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 110, -1));
 
         lblRoutingNumber.setText("Routing Number");
-        add(lblRoutingNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, -1, -1));
+        add(lblRoutingNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
 
         lblAccountNumber.setText("Account Number");
-        add(lblAccountNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
+        add(lblAccountNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
 
         lblBankName.setText("Bank Name");
-        add(lblBankName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, -1, -1));
+        add(lblBankName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
         lblBalance.setText("Balance");
-        add(lblBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
-        add(txtRoutingNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 130, -1));
-        add(txtAccountNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 130, -1));
-        add(txtBankName, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 130, -1));
-        add(txtBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 130, -1));
+        add(lblBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
+        add(txtRoutingNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 130, -1));
+        add(txtAccountNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 130, -1));
+        add(txtBankName, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 130, -1));
+        add(txtBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 130, -1));
 
         btnCreate.setText("Create Account");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +83,7 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, -1, -1));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed

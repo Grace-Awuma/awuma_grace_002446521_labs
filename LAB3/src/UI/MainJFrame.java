@@ -72,7 +72,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(topjPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(btnAccountingMng, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(319, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         topjPanel1Layout.setVerticalGroup(
             topjPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
