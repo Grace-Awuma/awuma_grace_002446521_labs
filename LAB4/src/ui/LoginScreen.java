@@ -140,7 +140,7 @@ public class LoginScreen extends javax.swing.JPanel {
         
     }
 
-    private void populateSupplierCombo() {
+    public void populateSupplierCombo() {
         
     }
 
