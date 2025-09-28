@@ -4,9 +4,13 @@
  */
 package ui;
 
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Supplier;
 import model.SupplierDirectory;
+import ui.Admin.AdminWorkAreaJPanel;
+import ui.supplier.SupplierWorkAreaJPanel;
 
 /**
  *
@@ -113,6 +117,10 @@ public class LoginScreen extends javax.swing.JPanel {
 
     private void cmbSuppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSuppliersActionPerformed
         // TODO add your handling code here:
+        if (cmbSuppliers.getSelectedItem() == null){
+        return;
+    }
+    selectedSupplier = (Supplier) cmbSuppliers.getSelectedItem();
 
     }//GEN-LAST:event_cmbSuppliersActionPerformed
 
@@ -123,6 +131,18 @@ public class LoginScreen extends javax.swing.JPanel {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
+         JPanel selectedPanel = (JPanel)cmbRoles.getSelectedItem();
+    if (selectedPanel.getClass() == SupplierWorkAreaJPanel.class){
+        if (selectedSupplier == null){
+            JOptionPane.showMessageDialog(this,"Please select a supplier to login");
+            return;
+        } else {
+            selectedPanel = new SupplierWorkAreaJPanel(mainWorkArea,selectedSupplier);
+        }
+    }
+    mainWorkArea.add("WorkAreaJPanel", selectedPanel);
+    CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+    layout.next(mainWorkArea);
 
     }//GEN-LAST:event_btnLoginActionPerformed
 
@@ -137,14 +157,32 @@ public class LoginScreen extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateRoleCombo() {
-        
-    }
+    cmbRoles.removeAllItems();
+    
+    AdminWorkAreaJPanel adminPanel = new AdminWorkAreaJPanel(mainWorkArea, supplierDirectory);
+    SupplierWorkAreaJPanel supplierPanel = new SupplierWorkAreaJPanel(mainWorkArea, selectedSupplier);
+    
+    cmbRoles.addItem(adminPanel);
+    cmbRoles.addItem(supplierPanel);
+}
 
     public void populateSupplierCombo() {
-        
+          cmbSuppliers.removeAllItems();
+          for (Supplier supplier: supplierDirectory.getSupplierList() ){
+          cmbSuppliers.addItem(supplier);
+          }
+  
     }
 
     private void updateSupplierVisibility() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if ((cmbRoles.getSelectedItem() == null) || cmbRoles.getSelectedItem().getClass() == AdminWorkAreaJPanel.class) {
+        lblSupplier.setVisible(false);
+        cmbSuppliers.setVisible(false);
+    }
+
+    if (cmbRoles.getSelectedItem().getClass() == SupplierWorkAreaJPanel.class) {
+        lblSupplier.setVisible(true);
+        cmbSuppliers.setVisible(true);
+    }
     }
 }

@@ -47,6 +47,12 @@ public class Feature {
         this.value = value;
     }
     
+    
+    @Override
+    public String toString(){
+    return name;
+    }
+    
         
     /**
      * @param args the command line arguments
