@@ -6,10 +6,18 @@ package ui.Admin;
 
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.awt.Image;
+import java.io.File;
+import java.util.logging.Logger;
+import java.util.logging.Level;
+import java.net.MalformedURLException;
+import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import model.Supplier;
 import model.SupplierDirectory;
 
@@ -30,6 +38,13 @@ public class AddSupplier extends javax.swing.JPanel {
         initComponents();
          this.workArea = workArea;
         this.supplierDirectory = supplierDirectory;
+        
+        FileFilter jpegFilter = new FileNameExtensionFilter("JPEG file", "jpg");
+    FileFilter pngFilter = new FileNameExtensionFilter("PNG file", "png");
+    
+    fileChooser.addChoosableFileFilter(jpegFilter);
+    fileChooser.addChoosableFileFilter(pngFilter);
+    fileChooser.setFileFilter(pngFilter);
         
     }
 
@@ -160,7 +175,7 @@ public class AddSupplier extends javax.swing.JPanel {
                     .addComponent(imgLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblLogo)
-                        .addGap(86, 86, 86)
+                        .addGap(61, 61, 61)
                         .addComponent(btnAddSupplier)))
                 .addContainerGap(91, Short.MAX_VALUE))
         );
@@ -168,11 +183,28 @@ public class AddSupplier extends javax.swing.JPanel {
 
     private void btnAttachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAttachActionPerformed
         // TODO add your handling code here:
+        int returnVal = fileChooser.showOpenDialog(this);
+    
+    if (returnVal == JFileChooser.APPROVE_OPTION) {
+        File file = fileChooser.getSelectedFile();
+        URL url;
+        try {
+            url = file.toURI().toURL();
+            logoImage = new ImageIcon(url);
+            logoImage = new ImageIcon(logoImage.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH));
+            
+            imgLogo.setIcon(logoImage);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(this.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     }//GEN-LAST:event_btnAttachActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here:
+        logoImage = null;
+        imgLogo.setIcon(logoImage);
 
     }//GEN-LAST:event_btnRemoveActionPerformed
 

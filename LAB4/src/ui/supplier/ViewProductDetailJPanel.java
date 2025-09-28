@@ -4,7 +4,10 @@
  */
 package ui.supplier;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import model.Feature;
 import model.Product;
 
 /**
@@ -28,6 +31,7 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
 
         refreshTable();
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -182,14 +186,43 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
+        product.setName(txtName.getText());
+    product.setPrice(Integer.parseInt(txtPrice.getText()));
+    saveFeature();
+    
+    txtName.setEditable(false);
+    txtPrice.setEditable(false);
+    btnSave.setEnabled(false);
+    tblFeatures.setEnabled(false);
+    btnRemoveFeature.setEnabled(false);
+    
+    JOptionPane.showMessageDialog(this, "Product Information saved!");
+        refreshTable();
+
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnAddFeatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFeatureActionPerformed
         // TODO add your handling code here:
+        Feature newFeature = product.addNewFeature(product);
+    newFeature.setName("New Feature");
+    newFeature.setValue("Type Value Here");
+    
+    saveFeature();
+    
+    refreshTable();
     }//GEN-LAST:event_btnAddFeatureActionPerformed
 
     private void btnRemoveFeatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveFeatureActionPerformed
         // TODO add your handling code here:
+        saveFeature();
+    int selectedRow = tblFeatures.getSelectedRow () ;
+    if (selectedRow < 0){
+    JOptionPane. showMessageDialog ( this,"Please select a row");
+    return;
+    }
+    product.getFeatures().remove(selectedRow);
+    refreshTable();
+    
     }//GEN-LAST:event_btnRemoveFeatureActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -230,6 +263,23 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
     }
 
     private void refreshTable() {
-        
+        DefaultTableModel model = (DefaultTableModel) tblFeatures.getModel();
+        model. setRowCount(0);
+        for (Feature f: product.getFeatures()){
+           Object row[] = new Object [2];
+            row[0]=f;
+            row [1]= f.getValue() == null ? "Empty": f.getValue ().toString();
+            model.addRow(row);
+        }
+    }
+
+    private void saveFeature() {
+ DefaultTableModel model = (DefaultTableModel) tblFeatures.getModel();
+    
+    for (int i = 0; i < model.getRowCount(); i++){
+        Feature currentFeature = product.getFeatures().get(i);
+        currentFeature.setName(tblFeatures.getValueAt(i, 0).toString());
+        currentFeature.setValue(tblFeatures.getValueAt(i, 0));    
+    }
     }
 }

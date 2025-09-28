@@ -5,6 +5,7 @@
 package ui.supplier;
 
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.Product;
@@ -24,6 +25,12 @@ public class ManageProductCatalogJPanel extends javax.swing.JPanel {
         initComponents();
         this.workArea = workArea;
         this.supplier = supplier;
+        
+        if (supplier.getLogoImage()!= null){
+            imgLogo.setIcon(supplier.getLogoImage());
+            }else{
+            imgLogo.setText("No Logo");
+        }
           refreshTable();
     }
 
@@ -43,6 +50,7 @@ public class ManageProductCatalogJPanel extends javax.swing.JPanel {
         btnSearch = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
+        imgLogo = new javax.swing.JLabel();
 
         tblProducts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -87,11 +95,16 @@ public class ManageProductCatalogJPanel extends javax.swing.JPanel {
 
         lblTitle.setText("Manage Product Catalog");
 
+        imgLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 573, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(580, Short.MAX_VALUE)
+                .addComponent(imgLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(19, 19, 19)
@@ -106,11 +119,14 @@ public class ManageProductCatalogJPanel extends javax.swing.JPanel {
                             .addGap(18, 18, 18)
                             .addComponent(btnDelete))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(20, Short.MAX_VALUE)))
+                    .addContainerGap(209, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 437, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(126, 126, 126)
+                .addComponent(imgLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(161, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(36, 36, 36)
@@ -129,7 +145,17 @@ public class ManageProductCatalogJPanel extends javax.swing.JPanel {
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
-
+        int row = tblProducts.getSelectedRow();
+        if (row < 0){
+        JOptionPane.showMessageDialog(this, "Please select a row", "WARNING", JOptionPane.WARNING_MESSAGE);
+        return;
+        
+        }
+        Product selectedProduct = (Product)tblProducts.getValueAt(row, 0);
+        ViewProductDetailJPanel vpdjp = new ViewProductDetailJPanel(workArea, selectedProduct);
+        workArea.add("ViewProductDetailWorkAreaJPanel", vpdjp);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.next(workArea);
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -141,12 +167,24 @@ public class ManageProductCatalogJPanel extends javax.swing.JPanel {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
+        SearchForProductJPanel sfpjp = new SearchForProductJPanel(workArea, supplier);
+        workArea.add("SearchForProductJPanel", sfpjp);
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
 
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-
+         int row = tblProducts.getSelectedRow();
+        if (row < 0){
+        JOptionPane.showMessageDialog(this, "Please select a row", "WARNING", JOptionPane.WARNING_MESSAGE);
+        return;
+        }
+        
+         Product selectedProduct = (Product)tblProducts.getValueAt(row, 0);
+         supplier.getProductCatalog().removeProduct(selectedProduct);
+         refreshTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
 
@@ -155,6 +193,7 @@ public class ManageProductCatalogJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnView;
+    private javax.swing.JLabel imgLogo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblProducts;

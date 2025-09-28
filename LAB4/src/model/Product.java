@@ -54,11 +54,17 @@ public class Product {
     public void setFeatures(ArrayList<Feature> features) {
         this.features = features;
     }
-
     
     @Override
     public String toString() {
         return name;
     }
+
+    public Feature addNewFeature(Product p) {
+        Feature feature = new Feature (p); 
+    features.add (feature);
+    return feature;
+    }
+    
     
 }
