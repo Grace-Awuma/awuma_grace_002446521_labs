@@ -219,7 +219,8 @@ public class AddSupplier extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAddSupplierActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        // TODO add your handling code here:\s
+        // TODO add your handling code here:
+         backAction();
     }//GEN-LAST:event_backButtonActionPerformed
 
 
@@ -240,11 +241,13 @@ public class AddSupplier extends javax.swing.JPanel {
 
     private void backAction() {
         workArea.remove(this);
-        Component[] componentArray = workArea.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        ManageSuppliers manageSuppliersJPanel = (ManageSuppliers) component;
-        manageSuppliersJPanel.refreshTable();
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.previous(workArea);
+    Component[] componentArray = workArea.getComponents();
+    Component component = componentArray[componentArray.length - 1];
+    ManageSuppliers manageSuppliersJPanel = (ManageSuppliers) component;
+    manageSuppliersJPanel.refreshTable();
+    CardLayout layout = (CardLayout) workArea.getLayout();
+    layout.previous(workArea);
     }
+
+
 }

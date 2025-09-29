@@ -4,6 +4,8 @@
  */
 package ui.supplier;
 
+import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -259,8 +261,23 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void backAction() {
-        
+        workArea.remove(this);
+    Component[] componentArray = workArea.getComponents();
+    Component component = componentArray[componentArray.length - 1];
+    
+    // Check the type before casting
+    if (component instanceof ManageProductCatalogJPanel) {
+        ManageProductCatalogJPanel manageProductCatalogPanel = (ManageProductCatalogJPanel) component;
+        manageProductCatalogPanel.refreshTable();
+    } else if (component instanceof SearchForProductJPanel) {
+        SearchForProductJPanel searchPanel = (SearchForProductJPanel) component;
+        // Handle search panel if needed
     }
+    
+    CardLayout layout = (CardLayout) workArea.getLayout();
+    layout.previous(workArea);
+}
+
 
     private void refreshTable() {
         DefaultTableModel model = (DefaultTableModel) tblFeatures.getModel();

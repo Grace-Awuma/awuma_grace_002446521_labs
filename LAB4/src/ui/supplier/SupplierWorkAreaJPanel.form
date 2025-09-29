@@ -16,20 +16,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="387" max="32767" attributes="0"/>
-              <Component id="splitPane" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-          </Group>
+          <Component id="splitPane" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-              <Component id="splitPane" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="302" max="32767" attributes="0"/>
-          </Group>
+          <Component id="splitPane" alignment="0" pref="413" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -51,69 +43,46 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="lblWelcome" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="102" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                       <Component id="btnManageProductCatalog" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnUpdateProfile" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="btnPerformance" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnSupplierProfile" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnManageStaff" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="Performance" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnLogOut" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnLogOut" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnPerformance" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnManageStaff" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnUpdateProfile" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblWelcome" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnManageProductCatalog" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="43" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnManageProductCatalog" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnSupplierProfile" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnManageStaff" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Performance" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnLogOut" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblWelcome" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnLogOut">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Log Out"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogOutActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnPerformance">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Performance"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPerformanceActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnManageStaff">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Manage Staff"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnUpdateProfile">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Update Profile"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="lblWelcome">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;Welcome Msg&gt;"/>
+                <Property name="text" type="java.lang.String" value="&lt;WelcomeMsg&gt;"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnManageProductCatalog">
@@ -122,6 +91,29 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageProductCatalogActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnSupplierProfile">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Update Profile"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnManageStaff">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Manage Staff"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="Performance">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Performance"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnLogOut">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Log Out"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogOutActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
