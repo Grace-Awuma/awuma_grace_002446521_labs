@@ -161,7 +161,47 @@ public class SignUpJPanel extends javax.swing.JPanel {
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
         // TODO add your handling code here:
         // Get form input
-   
+    String name = nameTextField.getText().trim();
+    String username = usernameTextField.getText().trim();
+    String password = passwordField.getText().trim();
+    String confirmPassword = passwordConfirmField.getText().trim();
+    
+    // Validation
+    if (name.isEmpty() || username.isEmpty() || password.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "All fields are required!");
+        return;
+    }
+    
+    if (!password.equals(confirmPassword)) {
+        JOptionPane.showMessageDialog(this, "Passwords do not match!");
+        return;
+    }
+    
+    // Check if username already exists
+    UserAccountDirectory uad = business.getUserAccountDirectory();
+    UserAccount existing = uad.findUserAccount(username);
+    if (existing != null) {
+        JOptionPane.showMessageDialog(this, "Username already exists!");
+        return;
+    }
+    
+    // Create new student account
+    PersonDirectory personDirectory = business.getPersonDirectory();
+    Person person = personDirectory.newPerson(name);
+    
+    StudentDirectory studentDirectory = business.getStudentDirectory();
+    StudentProfile sp = studentDirectory.newStudentProfile(person);
+    
+    UserAccount ua = uad.newUserAccount(sp, username, password);
+    
+    // Success message
+    JOptionPane.showMessageDialog(this, 
+        "Account created successfully!\nUsername: " + username + "\nYou can now login.");
+    
+    // Navigate back to login
+    container.removeAll();
+    container.revalidate();
+    container.repaint();
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 
     private void btnBacktoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBacktoLoginActionPerformed
