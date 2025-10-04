@@ -55,6 +55,8 @@ public class SignUpJPanel extends javax.swing.JPanel {
         btnCreateAccount = new javax.swing.JButton();
         btnBacktoLogin = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 204, 204));
+
         lblSignUp.setText("Sign Up");
 
         lblName.setText("Name");
@@ -77,15 +79,20 @@ public class SignUpJPanel extends javax.swing.JPanel {
 
         jLabel5.setText("Confirm Password");
 
-        btnCreateAccount.setBackground(new java.awt.Color(51, 204, 255));
+        btnCreateAccount.setBackground(new java.awt.Color(51, 153, 255));
+        btnCreateAccount.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateAccount.setText("Create Account");
+        btnCreateAccount.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateAccountActionPerformed(evt);
             }
         });
 
+        btnBacktoLogin.setBackground(new java.awt.Color(51, 153, 255));
+        btnBacktoLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnBacktoLogin.setText("Back To Login");
+        btnBacktoLogin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBacktoLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBacktoLoginActionPerformed(evt);
@@ -97,15 +104,14 @@ public class SignUpJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblUsername)
-                    .addComponent(lblName)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(btnCreateAccount))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblUsername)
+                            .addComponent(lblName)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(nameTextField)
@@ -113,9 +119,11 @@ public class SignUpJPanel extends javax.swing.JPanel {
                             .addComponent(passwordField)
                             .addComponent(passwordConfirmField, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(btnBacktoLogin)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                        .addGap(130, 130, 130)
+                        .addComponent(btnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(btnBacktoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(95, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -144,9 +152,9 @@ public class SignUpJPanel extends javax.swing.JPanel {
                     .addComponent(passwordConfirmField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreateAccount)
-                    .addComponent(btnBacktoLogin))
-                .addContainerGap(95, Short.MAX_VALUE))
+                    .addComponent(btnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBacktoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
